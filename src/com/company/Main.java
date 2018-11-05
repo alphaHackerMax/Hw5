@@ -4,32 +4,30 @@ import java.util.Stack;
 
 public class Main {
 
+    public static String binaryConversion(int numDec){
+        Stack stack = new Stack();
+        String strBinary = "";
+
+        for (int i = numDec; i >= 1; i = i / 2) {
+            int stageValue = i % 2;
+            stack.push(stageValue);
+            strBinary = stageValue + strBinary;
+        }
+
+        int m = stack.size();
+        int[] resultArray = new int[m];
+
+        for (int n = 0; n < m; n++) {
+            resultArray[n] = (int) stack.pop();
+        }
+
+        return strBinary;
+    }
+
     public static void main(String[] args) {
-        int numDec = 347;
-        Stack st = new Stack();
-        String str="";
+        int dec = 347;
 
-        for (int i = numDec; i >= 1 ; i=i/2) {
-            int a = i % 2;
-            st.push(a);
-            str = a + str;
-        }
-        System.out.println(st);
-        System.out.println(st.size());
-        System.out.println(str);
-
-        int[] z = new int[st.size()];
-        //int n = 0;
-
-        for (int n = 0; n < st.size(); n++) {
-        //for (Integer element: st) {
-            z[n] = (int) st.pop();
-            //z[n] = element;
-            System.out.println(z[n]);
-            //n += 1;
-            //System.out.println(element);
-        }
-        System.out.println(z);
-
+        String a = binaryConversion(347);
+        System.out.println(a);
     }
 }
