@@ -1,33 +1,23 @@
 package com.company;
 
-import java.util.Stack;
+import java.util.Arrays;
+import com.company.MyBinary;
 
 public class Main {
 
-    public static String binaryConversion(int numDec){
-        Stack stack = new Stack();
-        String strBinary = "";
-
-        for (int i = numDec; i >= 1; i = i / 2) {
-            int stageValue = i % 2;
-            stack.push(stageValue);
-            strBinary = stageValue + strBinary;
-        }
-
-        int m = stack.size();
-        int[] resultArray = new int[m];
-
-        for (int n = 0; n < m; n++) {
-            resultArray[n] = (int) stack.pop();
-        }
-
-        return strBinary;
-    }
-
     public static void main(String[] args) {
-        int dec = 347;
+        int dec = 347;  // число для перевода; тестовый вариант 135(dec) => (bin)1000 0111
 
-        String a = binaryConversion(347);
+        String a = MyBinary.binaryConversion(dec);
         System.out.println(a);
+
+        int[] res = MyBinary.myBinArr(dec);
+        System.out.println(Arrays.toString(res));
+
+        int[] res2arr = MyBinary.myBinArr2(dec);
+        System.out.println(Arrays.toString(res2arr));
+
+        String res2str = MyBinary.myBinString2(dec);
+        System.out.println(res2str);
     }
 }
